@@ -43,8 +43,14 @@ function App() {
     });
     observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
 
-    // Set dark mode as default for the tournament look
-    document.documentElement.classList.add('dark');
+    // Set default theme to dark for the tournament look, but respect existing choice
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'light') {
+      document.documentElement.classList.remove('dark');
+      document.documentElement.classList.add('light');
+    } else {
+      document.documentElement.classList.add('dark');
+    }
 
     return () => observer.disconnect();
   }, []);

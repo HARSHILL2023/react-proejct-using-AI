@@ -2,15 +2,14 @@
 
 :root {
   --primary: #6366f1;
-  --primary-glow: rgba(99, 102, 241, 0.3);
+  --primary-glow: rgba(99, 102, 241, 0.15);
   --secondary: #a855f7;
   --accent: #f43f5e;
-  --background: #020617;
-  /* Deep Midnight */
-  --surface: rgba(15, 23, 42, 0.4);
-  --text-dark: #f1f5f9;
-  --text-muted: #94a3b8;
-  --border: rgba(255, 255, 255, 0.1);
+  --background: #fdfdff;
+  --surface: rgba(255, 255, 255, 0.9);
+  --text-dark: #1e293b;
+  --text-muted: #64748b;
+  --border: rgba(0, 0, 0, 0.05);
 
   --grad-primary: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
 
@@ -23,11 +22,12 @@
 }
 
 .dark {
-  --background: #0b0f1a;
-  --surface: rgba(26, 31, 46, 0.6);
+  --background: #020617;
+  --surface: rgba(15, 23, 42, 0.4);
   --text-dark: #f1f5f9;
   --text-muted: #94a3b8;
-  --border: rgba(255, 255, 255, 0.08);
+  --border: rgba(255, 255, 255, 0.1);
+  --primary-glow: rgba(99, 102, 241, 0.3);
 }
 
 /* Glassmorphism Classes */
@@ -47,20 +47,19 @@
 
 body {
   font-family: 'Plus Jakarta Sans', sans-serif;
-  background-color: #020617;
-  background-image:
-    radial-gradient(circle at 50% -20%, rgba(99, 102, 241, 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 0% 100%, rgba(168, 85, 247, 0.05) 0%, transparent 50%);
-  color: #f1f5f9;
+  background-color: var(--background);
+  color: var(--text-dark);
   line-height: 1.6;
   overflow-x: hidden;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
   min-height: 100vh;
   position: relative;
 }
 
 .dark body {
-  background-color: #020617;
+  background-image:
+    radial-gradient(circle at 50% -20%, rgba(99, 102, 241, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 0% 100%, rgba(168, 85, 247, 0.05) 0%, transparent 50%);
 }
 
 .animate-meteor {

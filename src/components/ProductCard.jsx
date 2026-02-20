@@ -6,6 +6,7 @@ import { CoolMode } from './CoolMode';
 
 const ProductCard = ({ product, index }) => {
     const { addToCart } = useCart();
+    const [isAdded, setIsAdded] = React.useState(false);
 
     const truncatedTitle = product.title.length > 50
         ? product.title.substring(0, 47) + '...'
@@ -13,6 +14,8 @@ const ProductCard = ({ product, index }) => {
 
     const handleAddToCart = () => {
         addToCart(product);
+        setIsAdded(true);
+        setTimeout(() => setIsAdded(false), 2000);
     };
 
     return (
@@ -60,7 +63,7 @@ const ProductCard = ({ product, index }) => {
                                 className="add-to-cart-interactive"
                                 style={{ borderRadius: '1.5rem' }}
                             >
-                                Add to Cart
+                                {isAdded ? 'Added! ✓' : 'Add to Cart'}
                             </InteractiveHoverButton>
                         </CoolMode>
                     </div>

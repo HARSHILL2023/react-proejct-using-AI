@@ -57,24 +57,41 @@ const Cart = () => {
                                     <img src={item.image} alt={item.title} style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }} />
                                 </div>
 
-                                <div className="item-details-box">
+                                <div className="item-details-box" style={{ position: 'relative', zIndex: 10 }}>
                                     <span style={{ fontSize: '0.8rem', fontWeight: 800, textTransform: 'uppercase', color: 'var(--primary)', letterSpacing: '0.1em' }}>{item.category}</span>
                                     <h3 style={{ fontSize: '1.5rem', margin: '0.75rem 0', color: '#f1f5f9' }}>{item.title}</h3>
                                     <p style={{ fontWeight: 900, fontSize: '1.5rem', color: '#fff' }}>${item.price.toFixed(2)}</p>
                                 </div>
 
-                                <div className="item-actions-box" style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
-                                    <div className="qty-tag" style={{ background: '#f1f5f9', padding: '0.5rem 1rem', borderRadius: '8px', fontWeight: 700 }}>
+                                <div className="item-actions-box" style={{ display: 'flex', alignItems: 'center', gap: '2rem', position: 'relative', zIndex: 20 }}>
+                                    <div className="qty-tag" style={{ background: 'rgba(241, 245, 249, 0.1)', color: '#fff', padding: '0.5rem 1rem', borderRadius: '8px', fontWeight: 700, border: '1px solid rgba(255,255,255,0.1)' }}>
                                         Qty: {item.quantity}
                                     </div>
                                     <button
-                                        onClick={() => {
-                                            console.log('Discarding item:', item.id);
-                                            removeFromCart(item.id);
+                                        onClick={() => removeFromCart(item.id)}
+                                        className="discard-btn"
+                                        style={{
+                                            background: 'rgba(239, 68, 68, 0.1)',
+                                            border: '1px solid rgba(239, 68, 68, 0.2)',
+                                            color: '#ef4444',
+                                            cursor: 'pointer',
+                                            padding: '0.75rem',
+                                            borderRadius: '12px',
+                                            transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)',
+                                            display: 'flex',
+                                            alignItems: 'center',
+                                            justifyContent: 'center'
                                         }}
-                                        style={{ background: 'none', border: 'none', color: '#64748b', cursor: 'pointer', padding: '0.5rem', transition: 'color 0.2s', zIndex: 50, position: 'relative' }}
-                                        onMouseEnter={(e) => e.currentTarget.style.color = '#ef4444'}
-                                        onMouseLeave={(e) => e.currentTarget.style.color = '#64748b'}
+                                        onMouseEnter={(e) => {
+                                            e.currentTarget.style.background = '#ef4444';
+                                            e.currentTarget.style.color = '#fff';
+                                            e.currentTarget.style.transform = 'scale(1.1) rotate(5deg)';
+                                        }}
+                                        onMouseLeave={(e) => {
+                                            e.currentTarget.style.background = 'rgba(239, 68, 68, 0.1)';
+                                            e.currentTarget.style.color = '#ef4444';
+                                            e.currentTarget.style.transform = 'scale(1) rotate(0deg)';
+                                        }}
                                     >
                                         <Trash2 size={22} />
                                     </button>

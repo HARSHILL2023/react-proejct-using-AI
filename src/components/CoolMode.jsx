@@ -210,5 +210,9 @@ export const CoolMode = ({ children, options }) => {
         }
     }, [options]);
 
-    return <span ref={ref} style={{ display: 'inline-block' }}>{children}</span>;
+    return (
+        <div ref={ref} style={{ display: 'inline-block', position: 'relative' }}>
+            {children}
+        </div>
+    );
 };
