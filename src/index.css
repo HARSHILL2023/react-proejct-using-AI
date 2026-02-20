@@ -47,10 +47,8 @@
 
 body {
   font-family: 'Plus Jakarta Sans', sans-serif;
-  background-color: var(--background);
-  background-image:
-    radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.03) 0, transparent 50%),
-    radial-gradient(at 50% 0%, rgba(168, 85, 247, 0.03) 0, transparent 50%);
+  background-color: #f8fafc;
+  /* Clean, professional white-slate */
   color: var(--text-dark);
   line-height: 1.6;
   overflow-x: hidden;
