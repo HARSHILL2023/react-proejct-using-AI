@@ -21,12 +21,12 @@ const ProductCard = ({ product, index }) => {
         const y = (rect.top + rect.height / 2) / window.innerHeight;
 
         confetti({
-            particleCount: 50,
-            spread: 50,
+            particleCount: 40,
+            spread: 40,
             origin: { x, y },
-            colors: ['#6366f1', '#a855f7', '#ffffff'],
-            gravity: 1.2,
-            scalar: 0.8,
+            colors: ['#6366f1', '#ffffff'],
+            gravity: 1,
+            scalar: 0.7,
         });
     };
 
@@ -34,50 +34,55 @@ const ProductCard = ({ product, index }) => {
         <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.8, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
         >
             <ShineBorder
                 className="product-card-shine"
                 borderRadius="32px"
-                shineColor="rgba(99, 102, 241, 0.4)"
+                shineColor="rgba(99, 102, 241, 0.3)"
                 duration="15s"
             >
-                <div className="product-card" style={{ height: '620px' }}>
-                    <div className="image-wrapper" style={{ height: '420px', background: '#fff', padding: '2rem' }}>
+                <div className="product-card" style={{ height: '580px', background: '#fff' }}>
+                    <div className="image-wrapper" style={{ height: '400px', background: '#fff', padding: '0', overflow: 'hidden', position: 'relative' }}>
                         <motion.img
-                            whileHover={{ scale: 1.15 }}
-                            transition={{ duration: 0.6 }}
+                            whileHover={{ scale: 1.1 }}
+                            transition={{ duration: 0.8 }}
                             src={product.image}
                             alt={product.title}
-                            className="product-img"
-                            style={{ filter: 'drop-shadow(0 10px 30px rgba(0,0,0,0.08))' }}
+                            style={{
+                                width: '100%',
+                                height: '100%',
+                                objectFit: 'contain',
+                                padding: '3rem',
+                                zIndex: 1
+                            }}
                         />
-                        <div className="category-overlay" style={{ position: 'absolute', top: '1.5rem', left: '1.5rem' }}>
-                            <span className="category-tag" style={{ background: 'rgba(255,255,255,0.9)', backdropFilter: 'blur(10px)', color: 'var(--primary)', border: '1px solid var(--border)', boxShadow: '0 4px 12px rgba(0,0,0,0.05)' }}>
+                        <div style={{ position: 'absolute', top: '1.5rem', left: '1.5rem', zIndex: 10 }}>
+                            <span className="category-tag" style={{ background: 'rgba(255,255,255,0.85)', backdropFilter: 'blur(8px)', color: 'var(--text-dark)', border: '1px solid rgba(0,0,0,0.05)', fontSize: '0.7rem' }}>
                                 {product.category}
                             </span>
                         </div>
                     </div>
 
-                    <div className="product-info-wrap" style={{ padding: '2rem' }}>
-                        <h3 className="card-title" title={product.title} style={{ fontSize: '1.4rem', color: 'var(--text-dark)', marginBottom: 'auto', lineHeight: '1.3' }}>
+                    <div className="product-content" style={{ padding: '1.5rem 2rem 2rem', display: 'flex', flexDirection: 'column', flexGrow: 1, background: 'var(--background)' }}>
+                        <h3 style={{ fontSize: '1.2rem', fontWeight: 700, marginBottom: 'auto', color: 'var(--text-dark)', lineHeight: '1.4' }}>
                             {truncatedTitle}
                         </h3>
 
-                        <div className="card-bottom" style={{ borderTop: '1px solid var(--border)', paddingTop: '1.5rem', marginTop: '1.5rem' }}>
-                            <div className="price-stack">
-                                <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em' }}>Value</span>
-                                <p className="card-price" style={{ fontSize: '2rem', fontWeight: 800 }}>${product.price.toFixed(2)}</p>
+                        <div className="product-footer" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '1.5rem' }}>
+                            <div className="price-box">
+                                <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)', fontWeight: 800, textTransform: 'uppercase' }}>Price</span>
+                                <p style={{ fontSize: '1.75rem', fontWeight: 900, color: 'var(--text-dark)' }}>${product.price.toFixed(2)}</p>
                             </div>
                             <ShimmerButton
-                                className="add-btn-shimmer"
+                                className="add-btn"
                                 onClick={handleAddToCart}
-                                shimmerColor="rgba(255, 255, 255, 0.4)"
+                                shimmerColor="rgba(255, 255, 255, 0.5)"
                                 background="var(--grad-primary)"
-                                borderRadius="24px"
-                                style={{ width: '68px', height: '68px', padding: 0, boxShadow: '0 10px 20px rgba(99, 102, 241, 0.2)' }}
+                                borderRadius="20px"
+                                style={{ width: '60px', height: '60px', padding: 0 }}
                             >
-                                <Plus size={32} />
+                                <Plus size={30} />
                             </ShimmerButton>
                         </div>
                     </div>
