@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ProductCard from '../components/ProductCard';
 import { motion, AnimatePresence } from 'framer-motion';
 import { AuroraText } from '../components/AuroraText';
+import { CustomDropdown } from '../components/CustomDropdown';
 
 const Products = () => {
     const [products, setProducts] = useState([]);
@@ -89,19 +90,13 @@ const Products = () => {
                         <p style={{ color: 'var(--text-muted)' }}>{filteredProducts.length} Premium Items Available</p>
                     </div>
 
-                    <div className="filter-group">
-                        <span className="filter-label">Category Filter</span>
-                        <select
-                            className="filter-select"
-                            value={selectedCategory}
-                            onChange={(e) => setSelectedCategory(e.target.value)}
-                        >
-                            {categories.map(cat => (
-                                <option key={cat} value={cat}>
-                                    {cat === 'All' ? 'Every Collection' : cat.toUpperCase()}
-                                </option>
-                            ))}
-                        </select>
+                    <div className="filter-group" style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', alignItems: 'flex-start' }}>
+                        <span className="filter-label" style={{ fontSize: '0.75rem', fontWeight: 800, textTransform: 'uppercase', color: 'var(--primary)', letterSpacing: '0.1em', marginLeft: '0.5rem' }}>Collection Filter</span>
+                        <CustomDropdown
+                            options={categories}
+                            selected={selectedCategory}
+                            onSelect={setSelectedCategory}
+                        />
                     </div>
                 </div>
 
