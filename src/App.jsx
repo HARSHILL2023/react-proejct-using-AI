@@ -8,6 +8,7 @@ import Cart from './pages/Cart';
 import About from './pages/About';
 import { SmoothCursor } from './components/SmoothCursor';
 import { Particles } from './components/Particles';
+import { Meteors } from './components/Meteors';
 
 // Scroll to top on route change
 const ScrollToTop = () => {
@@ -33,14 +34,18 @@ const AnimatedRoutes = () => {
 };
 
 function App() {
-  const [theme, setTheme] = React.useState('light');
+  const [theme, setTheme] = React.useState('dark');
 
   // Sync theme for particles
   React.useEffect(() => {
     const observer = new MutationObserver(() => {
-      setTheme(document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+      setTheme(document.documentElement.classList.contains('light') ? 'light' : 'dark');
     });
     observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+
+    // Set dark mode as default for the tournament look
+    document.documentElement.classList.add('dark');
+
     return () => observer.disconnect();
   }, []);
 
@@ -48,15 +53,17 @@ function App() {
     <CartProvider>
       <Router>
         <ScrollToTop />
-        <div className="app">
+        <div className="app" style={{ minHeight: '100vh', position: 'relative', overflow: 'hidden' }}>
+          <Meteors number={30} />
           <SmoothCursor />
           <Particles
             className="particles-container"
-            quantity={150}
-            color={theme === 'dark' ? '#ffffff' : '#6366f1'}
+            quantity={100}
+            color="#ffffff"
+            staticity={30}
           />
           <Navbar />
-          <main style={{ marginTop: '1rem' }}>
+          <main style={{ marginTop: '1rem', position: 'relative', zIndex: 1 }}>
             <AnimatedRoutes />
           </main>
         </div>

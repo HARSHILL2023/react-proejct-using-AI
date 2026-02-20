@@ -52,7 +52,14 @@ const Navbar = () => {
         <motion.nav
             initial={{ y: -100 }}
             animate={{ y: 0 }}
-            className="navbar container"
+            className="navbar container liquid-glass"
+            style={{
+                margin: '1.5rem auto',
+                background: 'rgba(255, 255, 255, 0.01)',
+                border: '1px solid rgba(255, 255, 255, 0.05)',
+                boxShadow: '0 4px 24px rgba(0,0,0,0.4)',
+                padding: '0 2rem'
+            }}
         >
             <div className="nav-content" style={{ width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '0 1rem' }}>
                 <NavLink to="/" className="nav-brand" style={{ display: 'flex', alignItems: 'center', gap: '8px', textDecoration: 'none' }}>

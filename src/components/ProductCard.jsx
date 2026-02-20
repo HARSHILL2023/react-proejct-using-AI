@@ -21,8 +21,8 @@ const ProductCard = ({ product, index }) => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
         >
-            <div className="product-card liquid-glass" style={{ height: '620px', padding: 0, border: 'none' }}>
-                <div className="image-wrapper" style={{ height: '400px', background: 'transparent', padding: '0', overflow: 'hidden', position: 'relative' }}>
+            <div className="product-card liquid-glass" style={{ height: '620px', padding: 0, border: 'none', background: 'transparent' }}>
+                <div className="image-wrapper" style={{ height: '400px', background: 'rgba(255,255,255,0.02)', padding: '0', overflow: 'hidden', position: 'relative' }}>
                     <motion.img
                         whileHover={{ scale: 1.1 }}
                         transition={{ duration: 1.2, ease: "circOut" }}

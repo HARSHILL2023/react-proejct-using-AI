@@ -2,15 +2,15 @@
 
 :root {
   --primary: #6366f1;
-  --primary-glow: rgba(99, 102, 241, 0.15);
-  /* Reduced glow */
+  --primary-glow: rgba(99, 102, 241, 0.3);
   --secondary: #a855f7;
   --accent: #f43f5e;
-  --background: #fdfdff;
-  --surface: rgba(255, 255, 255, 0.9);
-  --text-dark: #1e293b;
-  --text-muted: #64748b;
-  --border: rgba(0, 0, 0, 0.05);
+  --background: #020617;
+  /* Deep Midnight */
+  --surface: rgba(15, 23, 42, 0.4);
+  --text-dark: #f1f5f9;
+  --text-muted: #94a3b8;
+  --border: rgba(255, 255, 255, 0.1);
 
   --grad-primary: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
 
@@ -47,13 +47,40 @@
 
 body {
   font-family: 'Plus Jakarta Sans', sans-serif;
-  background-color: #f8fafc;
-  /* Clean, professional white-slate */
-  color: var(--text-dark);
+  background-color: #020617;
+  background-image:
+    radial-gradient(circle at 50% -20%, rgba(99, 102, 241, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 0% 100%, rgba(168, 85, 247, 0.05) 0%, transparent 50%);
+  color: #f1f5f9;
   line-height: 1.6;
   overflow-x: hidden;
   transition: background-color 0.3s ease;
   min-height: 100vh;
+  position: relative;
+}
+
+.dark body {
+  background-color: #020617;
+}
+
+.animate-meteor {
+  animation: meteor 5s linear infinite;
+}
+
+@keyframes meteor {
+  0% {
+    transform: rotate(var(--angle)) translateX(0);
+    opacity: 1;
+  }
+
+  70% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: rotate(var(--angle)) translateX(-500px);
+    opacity: 0;
+  }
 }
 
 h1,
@@ -234,17 +261,24 @@ h4 {
 
 /* Liquid Glass Theme */
 .liquid-glass {
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(25px) saturate(180%);
-  -webkit-backdrop-filter: blur(25px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.015);
+  backdrop-filter: blur(25px) saturate(200%);
+  -webkit-backdrop-filter: blur(25px) saturate(200%);
+  border: 1px solid rgba(255, 255, 255, 0.05);
   border-radius: var(--radius-lg);
   position: relative;
   overflow: hidden;
   box-shadow:
-    0 10px 30px -10px rgba(0, 0, 0, 0.2),
-    inset 0 0 40px 0 rgba(255, 255, 255, 0.05);
-  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    0 20px 50px -15px rgba(0, 0, 0, 0.5),
+    inset 0 0 40px 0 rgba(255, 255, 255, 0.02);
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.liquid-glass:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(99, 102, 241, 0.2);
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: 0 40px 80px -20px rgba(0, 0, 0, 0.6);
 }
 
 .liquid-glass::before {

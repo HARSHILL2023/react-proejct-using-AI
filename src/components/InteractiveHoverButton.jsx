@@ -22,8 +22,8 @@ export const InteractiveHoverButton = ({
                 </span>
             </div>
             <div className="hover-content">
-                <span>{children}</span>
-                <ArrowRight size={20} />
+                <span style={{ fontWeight: 800 }}>{children}</span>
+                <ArrowRight size={20} strokeWidth={3} />
             </div>
         </button>
     );

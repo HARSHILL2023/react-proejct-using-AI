@@ -52,15 +52,15 @@ const Cart = () => {
                 <div className="cart-list">
                     <AnimatedList delay={0.1}>
                         {cart.map((item, index) => (
-                            <div key={item.id} className="cart-item-row" style={{ position: 'relative', background: '#fff', borderRadius: 'var(--radius-md)', padding: '1.5rem', marginBottom: '1.5rem', border: '1px solid var(--border)', display: 'grid', gridTemplateColumns: '120px 1fr auto', gap: '2rem', alignItems: 'center' }}>
-                                <div className="item-img-box" style={{ background: '#fafafa', borderRadius: '12px', padding: '1rem', height: '120px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                            <div key={item.id} className="cart-item-row liquid-glass" style={{ position: 'relative', background: 'rgba(255,255,255,0.01)', padding: '2rem', marginBottom: '1.5rem', border: '1px solid rgba(255,255,255,0.05)', display: 'grid', gridTemplateColumns: '140px 1fr auto', gap: '2.5rem', alignItems: 'center' }}>
+                                <div className="item-img-box" style={{ background: '#fff', borderRadius: '16px', padding: '1.5rem', height: '140px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                                     <img src={item.image} alt={item.title} style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }} />
                                 </div>
 
                                 <div className="item-details-box">
-                                    <span style={{ fontSize: '0.75rem', fontWeight: 800, textTransform: 'uppercase', color: 'var(--primary)', letterSpacing: '0.05em' }}>{item.category}</span>
-                                    <h3 style={{ fontSize: '1.25rem', margin: '0.5rem 0', color: 'var(--text-dark)' }}>{item.title}</h3>
-                                    <p style={{ fontWeight: 800, fontSize: '1.25rem' }}>${item.price.toFixed(2)}</p>
+                                    <span style={{ fontSize: '0.8rem', fontWeight: 800, textTransform: 'uppercase', color: 'var(--primary)', letterSpacing: '0.1em' }}>{item.category}</span>
+                                    <h3 style={{ fontSize: '1.5rem', margin: '0.75rem 0', color: '#f1f5f9' }}>{item.title}</h3>
+                                    <p style={{ fontWeight: 900, fontSize: '1.5rem', color: '#fff' }}>${item.price.toFixed(2)}</p>
                                 </div>
 
                                 <div className="item-actions-box" style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
