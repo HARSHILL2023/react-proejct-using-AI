@@ -83,22 +83,16 @@ export const AnimatedThemeToggler = ({
                 onClick={toggleTheme}
                 className={cn("theme-toggler dock-item", className)}
                 style={{
-                    position: 'relative',
                     width: '45px',
                     height: '45px',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
                     border: 'none',
-                    background: 'rgba(255,255,255,0.05)',
-                    borderRadius: '12px',
                     cursor: 'pointer'
                 }}
                 {...props}
             >
                 {isDark ? <Sun size={20} /> : <Moon size={20} />}
                 <span className="sr-only">Toggle theme</span>
-                <span className="dock-tooltip">Toggle Theme</span>
+                <span className="dock-tooltip">Theme</span>
             </button>
         </div>
     )
