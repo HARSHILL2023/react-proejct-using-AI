@@ -52,16 +52,22 @@ const Navbar = () => {
         <motion.nav
             initial={{ y: -100 }}
             animate={{ y: 0 }}
-            className="navbar container liquid-glass"
+            className="navbar container"
             style={{
-                margin: '1.5rem auto',
-                background: 'rgba(255, 255, 255, 0.01)',
-                border: '1px solid rgba(255, 255, 255, 0.05)',
-                boxShadow: '0 4px 24px rgba(0,0,0,0.4)',
-                padding: '0 2rem'
+                margin: '4rem auto 2rem',
+                position: 'relative',
+                zIndex: 1000
             }}
         >
-            <div className="nav-content" style={{ width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '0 1rem' }}>
+            <div className="navbar-bg liquid-glass" style={{
+                position: 'absolute',
+                inset: 0,
+                zIndex: -1,
+                border: '1px solid rgba(255, 255, 255, 0.05)',
+                boxShadow: '0 4px 24px rgba(0,0,0,0.4)',
+                borderRadius: 'var(--radius-lg)'
+            }}></div>
+            <div className="nav-content" style={{ width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '1rem 2rem' }}>
                 <NavLink to="/" className="nav-brand" style={{ display: 'flex', alignItems: 'center', gap: '8px', textDecoration: 'none' }}>
                     <Zap fill="var(--primary)" size={28} />
                     <AuroraText>SwiftCart</AuroraText>
